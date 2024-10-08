@@ -1,0 +1,25 @@
+name: build c app
+
+on:
+  push:
+  pull_request:  
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: get all the app code
+          uses: actions/checkout@v2
+
+        - name: install compiler
+          run: |
+            sudo apt-get update
+            sudo apt-get install -y gcc
+
+        - name: compile the program
+          run: gcc hello.c -o hello
+
+
+
+    
